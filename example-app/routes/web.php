@@ -21,3 +21,10 @@ Route::get('/courses', function () {
     return view('courses');
 });
 
+Route::get('/IT', function () {
+    return view('course_syllabus.IT');
+});
+
+Route::get('/Biology', function () {
+    return view('course_syllabus.Biology');
+});

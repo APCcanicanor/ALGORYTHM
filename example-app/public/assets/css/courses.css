@@ -19,8 +19,6 @@ nav {
     position: fixed;
     top: 0;
     z-index: 1000; /* Ensure navbar stays on top of other content */
-
-
 }
 
 .logo {
@@ -48,7 +46,7 @@ nav ul li a {
     text-transform: uppercase;
 }
 
-a:hover {
+nav ul li a:hover {
     background: #2134a0;
     transition: .5s;
 }
@@ -119,100 +117,15 @@ a:hover {
     }
 }
 
-/* Section styles */
-.sec-num1 {
-    background-image: url('https://wallpaperbat.com/img/628458-study-wallpaper-top-free-study-background.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 200px;
-    text-align: left;
-    color: white;
-    margin-top: 80px; /* Adjust margin to accommodate fixed navbar */
-}
-
-.sec-num1 h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.btn {
-    display: inline-block;
-    background: #04558b;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.btn:hover {
-    background: #2134a0;
-}
-
-/* Styles for About Us Section */
-.about-section {
-    padding: 50px 0;
-    text-align: center;
-    background-color: #f9f9f9;
-}
-
-.about-section h2 {
-    margin-bottom: 30px;
-    font-size: 2rem;
-    color: #333;
-}
-
-.about-section p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #666;
-    margin-bottom: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.members {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.card {
-    width: 300px;
-    margin: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.card img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-}
-
-.card .info {
-    padding: 20px;
-}
-
-.card h3 {
-    margin-bottom: 10px;
-}
-
-.card p {
-    color: #666;
-}
-
 /* Footer styles */
 .footer {
-    width: 100%;
+    position: fixed; /* Position the footer */
+    bottom: 0; /* Stick it to the bottom */
+    width: 100%; /* Full width */
     background-color: #04558b;
     color: white;
     padding: 30px 0;
     text-align: center;
-    margin-top: auto; /* Push footer to the bottom */
 }
 
 .footer .container {
@@ -258,4 +171,85 @@ a:hover {
 
 .footer .social-icons i {
     vertical-align: middle;
+}
+
+/* Styles for course cards */
+.course-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px; /* Add padding to space out the cards */
+    margin-top: 100px; /* Add top margin to accommodate the fixed navbar */
+}
+
+.course-card {
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease; /* Add smooth transition effect */
+}
+
+.course-card:hover {
+    transform: translateY(-5px); /* Lift the card slightly on hover */
+}
+
+.course-card img {
+    width: 100%; /* Ensure the image fills the card */
+    height: 200px; /* Set the desired height for the image */
+    object-fit: cover; /* Maintain aspect ratio and cover entire space */
+    border-radius: 5px 5px 0 0; /* Rounded corners only at the top */
+}
+
+.course-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333; /* Set the heading color */
+}
+
+.course-card p {
+    font-size: 16px;
+    color: #666;
+}
+
+.course-card a {
+    display: inline-block;
+    margin-top: 15px; /* Add some space between the description and the link */
+    text-decoration: none;
+    color: #04558b; /* Set link color */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Add transition effect to link color */
+}
+
+.course-card a:hover {
+    color: #2134a0; /* Change link color on hover */
+}
+
+/* Intro */
+.intro {
+    background-color: #f7f7f7; /* Set background color */
+    padding: 50px 0; /* Add padding to top and bottom */
+    text-align: center; /* Align text to center */
+    margin-top: 80px; /* Add top margin to accommodate the fixed navbar */
+}
+
+
+.intro .container {
+    max-width: 800px; /* Set maximum width for the container */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+.intro h1 {
+    font-size: 36px; /* Set font size for heading */
+    color: #333; /* Set color for heading text */
+    margin-bottom: 20px; /* Add bottom margin for spacing */
+}
+
+.intro p {
+    font-size: 18px; /* Set font size for paragraph */
+    color: #666; /* Set color for paragraph text */
+    line-height: 1.6; /* Set line height for better readability */
 }

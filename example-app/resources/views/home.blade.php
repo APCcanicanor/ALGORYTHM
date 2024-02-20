@@ -53,9 +53,30 @@
                 </div>
             </div>
             <!-- Add more cards for other members -->
+            <div class="card">
+                <img src="https://scontent.fmnl25-2.fna.fbcdn.net/v/t1.15752-9/344298055_3226216867670501_6255321439231081273_n.png?_nc_cat=102&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeF2Ue7a3jWkjFYSlvohC_rVdtkGXjTsF7J22QZeNOwXssOJJjgh3vTOqTS9dHef0LjTboCjXtNi7gDWlvnfBiI6&_nc_ohc=QZbygL_V1mAAX8Pk3hG&_nc_ht=scontent.fmnl25-2.fna&oh=03_AdQdl59BvpgCiroKDkJbRoP7HxBvhHtCLQO52_BvoRo42w&oe=65FC0C99" alt="Member 2">
+                <div class="info">
+                    <h3>Henzon Ivan Valguna</h3>
+                    <p>Member</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://scontent.fmnl25-2.fna.fbcdn.net/v/t1.15752-9/423105651_1323096652044615_3355850101978696698_n.png?_nc_cat=111&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeHLEuP1eEZhkmnR7m2-bgmqnei-qHKhwhad6L6ocqHCFhp7y36WFCbqHlHv5nWV0OVszqt_RyUkEFYyHwbZE--r&_nc_ohc=UZlPqzr4pHQAX9E9eNO&_nc_ht=scontent.fmnl25-2.fna&oh=03_AdQoJ94czKc4TnOLXPXA-9tEVsFYQ8g6mC6S7Zrce2j0uQ&oe=65FBEA87" alt="Member 2">
+                <div class="info">
+                    <h3>Gabrielle Ann Yogawin</h3>
+                    <p>Member</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 ALGORYTHM2.0. All rights reserved.</p>
+    </div>
+</footer>
 
 
 </body>

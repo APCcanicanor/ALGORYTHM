@@ -38,7 +38,7 @@
     <a href="/IT" class="course-link">
         <div class="course-card">
             <img src="https://media.istockphoto.com/id/1352367851/vector/dx-vector-icon-illustration.jpg?s=612x612&w=0&k=20&c=_m2prNR3aJFKZ-AH5kVKMr9RGmBnKoWU6J-ExRMBaC0=" alt="Course 1 Image">
-            <h3>Course Title 1</h3>
+            <h3>IT Department</h3>
             <p>Description of Course 1 goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
     </a>
@@ -47,7 +47,7 @@
     <a href="/Biology" class="course-link">
         <div class="course-card">
             <img src="https://icons.veryicon.com/png/o/education-technology/icon-summary-of-educational-activities/biology-1.png" alt="Course 2 Image">
-            <h3>Course Title 2</h3>
+            <h3>Biology Department</h3>
             <p>Description of Course 2 goes here. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
     </a>

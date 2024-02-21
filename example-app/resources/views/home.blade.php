@@ -28,7 +28,7 @@
 <section class="sec-num1">
     <div class="container">
         <h1>Check out our stored syllabus in each courses!</h1>
-        <a href="/courses" class="btn">See syllabus</a>
+        <a href="/courses" class="btn">See Courses</a>
     </div>
 </section>
 

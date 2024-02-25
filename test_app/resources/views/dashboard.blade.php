@@ -19,8 +19,11 @@
     <a href="/"><img class="logo" src="https://www.apc.edu.ph/wp-content/uploads/2019/05/apc-icon.png" alt="icon"></a>
 
 	<ul>
-		<li><a class="active" href="/">Home</a></li>
+		<li><a class="active" href="/dashboard">Home</a></li>
 		<li><a href="courses">Courses</a></li>
+        <li><x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+            {{ __('Profile') }}
+        </x-responsive-nav-link></li>
 	</ul>
 </nav>
 

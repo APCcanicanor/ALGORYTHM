@@ -51,3 +51,22 @@ Route::middleware([
     })->name('create');
 });
 
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/IT', function () {
+        return view('view_syllabus.IT');
+    })->name('view_syllabus.IT');
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/biology', function () {
+        return view('view_syllabus.biology');
+    })->name('view_syllabus.biology');
+});

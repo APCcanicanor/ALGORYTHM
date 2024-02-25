@@ -16,7 +16,7 @@
 		<i class="fas fa-bars"></i>
 	</label>
 
-    <a href="/"><img class="logo" src="https://www.apc.edu.ph/wp-content/uploads/2019/05/apc-icon.png" alt="icon"></a>
+    <a href="/dashboard"><img class="logo" src="https://www.apc.edu.ph/wp-content/uploads/2019/05/apc-icon.png" alt="icon"></a>
 
 	<ul>
 		<li><a class="active" href="/dashboard">Home</a></li>
@@ -39,7 +39,7 @@
 <!-- Container for the list of courses -->
 <div class="course-container">
     <!-- Course Card 1 -->
-    <a href="/IT" class="course-link">
+    <a href="{{ route('view_syllabus.IT') }}" class="course-link">
         <div class="course-card">
             <img src="https://media.istockphoto.com/id/1352367851/vector/dx-vector-icon-illustration.jpg?s=612x612&w=0&k=20&c=_m2prNR3aJFKZ-AH5kVKMr9RGmBnKoWU6J-ExRMBaC0=" alt="Course 1 Image">
             <h3>Course Title 1</h3>
@@ -48,7 +48,7 @@
     </a>
 
     <!-- Course Card 2 -->
-    <a href="/Biology" class="course-link">
+    <a href="{{ route('view_syllabus.biology') }}" class="course-link">
         <div class="course-card">
             <img src="https://icons.veryicon.com/png/o/education-technology/icon-summary-of-educational-activities/biology-1.png" alt="Course 2 Image">
             <h3>Course Title 2</h3>

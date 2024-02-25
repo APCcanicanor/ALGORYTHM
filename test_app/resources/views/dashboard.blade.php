@@ -16,7 +16,7 @@
 		<i class="fas fa-bars"></i>
 	</label>
 
-    <a href="/"><img class="logo" src="https://www.apc.edu.ph/wp-content/uploads/2019/05/apc-icon.png" alt="icon"></a>
+    <a href="/dashboard"><img class="logo" src="https://www.apc.edu.ph/wp-content/uploads/2019/05/apc-icon.png" alt="icon"></a>
 
 	<ul>
 		<li><a class="active" href="/dashboard">Home</a></li>
@@ -24,6 +24,7 @@
         <li><x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
             {{ __('Profile') }}
         </x-responsive-nav-link></li>
+        <li><a href = "create">Create</a></li>
 	</ul>
 </nav>
 

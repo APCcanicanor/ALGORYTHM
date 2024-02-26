@@ -13,60 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');});
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');});
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {Route::get('/courses', function () {return view('courses');})->name('courses');});
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {Route::get('/IT', function () {return view('view_syllabus.IT');})->name('view_syllabus.IT');});
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {Route::get('/biology', function () {return view('view_syllabus.biology');})->name('view_syllabus.biology');});
 
-Route::get('/courses', function () {
-    return view('courses');
-});
+Route::get('/create', function () {return view('create');})->middleware('auth', 'teacher_or_executive');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/courses', function () {
-        return view('courses');
-    })->name('courses');
-});
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/create', function () {
-        return view('create');
-    })->name('create');
-});
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/IT', function () {
-        return view('view_syllabus.IT');
-    })->name('view_syllabus.IT');
-});
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/biology', function () {
-        return view('view_syllabus.biology');
-    })->name('view_syllabus.biology');
-});

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,4 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
 
 Route::get('/create', function () {return view('create');})->middleware('auth', 'teacher_or_executive');
 
+Route::post('/register', [RegisterController::class, 'register'])->name('register');

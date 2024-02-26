@@ -31,7 +31,7 @@
 <!-- section -->
 <section class="sec-num1">
     <div class="container">
-        <h1>Check out our stored syllabus in each courses!</h1>
+        <h1>Check out our stored syllabus!</h1>
         <a href="/courses" class="btn">See syllabus</a>
     </div>
 </section>
@@ -40,7 +40,7 @@
 <section class="about-section">
     <div class="container">
         <h2>About Us</h2>
-        <p>Welcome to our website! We are dedicated to revolutionizing education through artificial intelligence. Our platform generates course syllabi using cutting-edge AI technology, providing educators with comprehensive and tailored resources to enhance teaching and learning experiences. With our innovative approach, we aim to empower educators and institutions to adapt to the ever-evolving landscape of education.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam augue ante, aliquam at tincidunt sed, molestie ac mauris. Duis lobortis.</p>
         <div class="members">
             <div class="card">
                 <img src="https://scontent.fmnl13-2.fna.fbcdn.net/v/t1.15752-9/426235430_265513763265977_3208154578375981903_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeEgsRm--nWiQiU7Ri-W1gK4ACglnMBQQ9gAKCWcwFBD2OTiJIYqwifWT3fp0avZHUvB1u90mSrV3jUg6dfgc7Vk&_nc_ohc=X-QQbfgBYIMAX-7Oioh&_nc_ht=scontent.fmnl13-2.fna&oh=03_AdRdUBOClm9sFUCC2tYEjnr6XU_Z2VRHV7Si_fGXU1exfQ&oe=65FAC52E" alt="Member 1">

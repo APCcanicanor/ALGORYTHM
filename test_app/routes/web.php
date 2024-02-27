@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,5 +22,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {Route::get('/biology', function () {return view('view_syllabus.biology');})->name('view_syllabus.biology');});
 
 Route::get('/create', function () {return view('create');})->middleware('auth', 'teacher_or_executive');
+Route::get('/forApproval', function () {return view('forApproval');})->middleware('auth', 'Exd_only');
 
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
+

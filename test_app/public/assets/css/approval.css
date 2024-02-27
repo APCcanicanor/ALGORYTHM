@@ -1,3 +1,4 @@
+
 /* General styles */
 * {
     padding: 0;
@@ -90,6 +91,9 @@ nav {
 .dropdown:hover .dropdown-menu {
     display: block;
 }
+
+
+
 /* Footer styles */
 .footer {
     position: fixed; /* Position the footer */
@@ -108,40 +112,7 @@ nav {
     align-items: center;
 }
 
-.footer .team-name {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+.footer p {
+    margin: 0;
 }
 
-.footer .copyright {
-    font-size: 14px;
-    opacity: 0.8;
-    margin-bottom: 20px;
-}
-
-.footer .social-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer .social-icons a {
-    color: white;
-    margin: 0 10px;
-    font-size: 20px;
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-}
-
-.footer .social-icons a:hover {
-    opacity: 0.8;
-}
-
-.footer .social-icons a:last-child {
-    margin-right: 0;
-}
-
-.footer .social-icons i {
-    vertical-align: middle;
-}

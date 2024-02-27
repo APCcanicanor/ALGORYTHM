@@ -9,23 +9,34 @@
 </head>
 <body>
 
-<!-- navbar -->
+<!-- Navbar -->
 <nav>
-	<input type="checkbox" id="check">
-	<label for="check" class="checkbtn">
-		<i class="fas fa-bars"></i>
-	</label>
+    <div class="logo-container">
+        <a href="/dashboard">
+            <img class="logo" src="https://www.apc.edu.ph/wp-content/uploads/2019/05/apc-icon.png" alt="icon">
+        </a>
+    </div>
 
-    <a href="/dashboard"><img class="logo" src="https://www.apc.edu.ph/wp-content/uploads/2019/05/apc-icon.png" alt="icon"></a>
+    <ul class="menu">
+        <li><a class="active" href="/dashboard">Home</a></li>
+        <li><a href="courses">Courses</a></li>
 
-	<ul>
-		<li><a class="active" href="/dashboard">Home</a></li>
-		<li><a href="courses">Courses</a></li>
-        <li><x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-            {{ __('Profile') }}
-        </x-responsive-nav-link></li>
-        <li><a href = "create">Create</a></li>
-	</ul>
+        <!-- Dropdown Menu -->
+        <li class="dropdown">
+            <a href="#">More <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+                @auth
+                    @if(Auth::user()->role === 'teacher' || Auth::user()->role === 'executive')
+                        <li><a href="create">Create</a></li>
+                    @endif
+                    @if(Auth::user()->role === 'executive')
+                        <li><a href="forApproval">Pending Approval</a></li>
+                    @endif
+                    <li><a href="{{ route('profile.show') }}">Profile</a></li>
+                @endauth
+            </ul>
+        </li>
+    </ul>
 </nav>
 
 <!-- Introduction -->

@@ -69,6 +69,8 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         // Other middleware entries
         'teacher_or_executive' => \App\Http\Middleware\TeacherOrExecutive::class,
+        'Exd_only' => \App\Http\Middleware\exd_only::class,
     ];
+
 
 }

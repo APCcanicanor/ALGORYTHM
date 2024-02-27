@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\SyllabusController;
 
 
 /*
@@ -26,4 +27,8 @@ Route::get('/YourWorks', function () {return view('YourWorks');})->middleware('a
 Route::get('/forApproval', function () {return view('forApproval');})->middleware('auth', 'Exd_only');
 
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
+Route::post('/store-syllabus', [SyllabusController::class, 'store'])->name('store-syllabus.create');
+
+
+
 

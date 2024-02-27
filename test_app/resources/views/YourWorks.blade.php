@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Works</title>
     <link rel="stylesheet" href="{{ asset('assets/css/yWorks.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 
@@ -46,7 +47,7 @@
 <!-- Content section -->
 <div class="content">
     <div class="button-container">
-        <button class="create-button">Create</button>
+        <a href="create" class="create-button">Create</a>
     </div>
     <div class="saved-content">
         <!-- Your saved content goes here -->

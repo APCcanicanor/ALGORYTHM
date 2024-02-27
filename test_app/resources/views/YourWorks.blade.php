@@ -19,7 +19,7 @@
 
     <ul class="menu">
         <li><a class="active" href="/dashboard">Home</a></li>
-        <li><a href="courses">Courses</a></li>
+        <li><a href="/courses">Courses</a></li>
 
         <!-- Dropdown Menu -->
         <li class="dropdown">
@@ -27,15 +27,15 @@
             <ul class="dropdown-menu">
                 @auth
                     @if(Auth::user()->role === 'teacher' || Auth::user()->role === 'executive')
-                        <li><a href="create">Create</a></li>
+                        <li><a href="/create">Create</a></li>
                     @endif
 
                     @if(Auth::user()->role === 'teacher' || Auth::user()->role === 'executive')
-                        <li><a href="YourWorks">Your Works</a></li>
+                        <li><a href="/YourWorks">Your Works</a></li>
                     @endif
 
                     @if(Auth::user()->role === 'executive')
-                        <li><a href="forApproval">Pending Approval</a></li>
+                        <li><a href="/forApproval">Pending Approval</a></li>
                     @endif
                     <li><a href="{{ route('profile.show') }}">Profile</a></li>
                 @endauth
@@ -44,19 +44,17 @@
     </ul>
 </nav>
 
-<!-- Content section -->
 <div class="content">
-    <div class="button-container">
-        <a href="create" class="create-button">Create</a>
+    @foreach($data as $syllabus)
+    <div class="card">
+        <a href="{{ route('syllabus.details', $syllabus->id) }}">
+            <h3>{{ $syllabus->courseTitle }}</h3>
+            <p>Instructor: {{ $syllabus->instructor }}</p>
+            <!-- Add more details as needed -->
+        </a>
     </div>
-    <div class="saved-content">
-        <!-- Your saved content goes here -->
-    </div>
+    @endforeach
 </div>
-
-
-
-
 
 <!-- Footer -->
 <footer class="footer">

@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class TeacherOrExecutive
+class exd_only
 {
     public function handle(Request $request, Closure $next)
     {

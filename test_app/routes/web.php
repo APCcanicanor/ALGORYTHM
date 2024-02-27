@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\SyllabusController;
-
+use App\Http\Controllers\ShowSyllabusController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +29,12 @@ Route::get('/forApproval', function () {return view('forApproval');})->middlewar
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 Route::post('/store-syllabus', [SyllabusController::class, 'store'])->name('store-syllabus.create');
 
+
+Route::get('/YourWorks', [ShowSyllabusController::class, 'show'])->name('YourWorks');
+Route::get('/syllabus/{id}', [ShowSyllabusController::class, 'details'])->name('syllabus.details');
+Route::get('/syllabus/{id}/edit', [ShowSyllabusController::class, 'edit'])->name('syllabus.edit');
+Route::put('/syllabus/{id}', [ShowSyllabusController::class, 'update'])->name('syllabus.update');
+Route::delete('/syllabus/{id}', [ShowSyllabusController::class, 'destroy'])->name('syllabus.destroy');
 
 
 

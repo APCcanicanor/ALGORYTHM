@@ -1,0 +1,273 @@
+/* General styles */
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Navbar styles */
+nav {
+    background-color: #3b5998; /* Dark blue */
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.menu li {
+    margin-left: 20px;
+}
+
+.menu a {
+    color: #ffffff; /* White text */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: #4a6ea9; /* Darker blue on hover */
+}
+
+/* Dropdown styles */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #ffffff; /* White */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    color: #333333; /* Dark gray */
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Footer styles */
+.footer {
+    position: fixed; /* Position the footer */
+    bottom: 0; /* Stick it to the bottom */
+    width: 100%; /* Full width */
+    background-color: #04558b;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .team-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer .copyright {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.footer .social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 20px;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+    opacity: 0.8;
+}
+
+.footer .social-icons a:last-child {
+    margin-right: 0;
+}
+
+.footer .social-icons i {
+    vertical-align: middle;
+}
+
+/* Content section */
+.content {
+    margin-top: 80px; /* Adjust based on navbar height */
+    padding: 40px;
+    background-color: #f8f9fa; /* Light gray background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.content label {
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #333; /* Dark gray text */
+}
+
+.content p {
+    margin-bottom: 24px;
+    color: #555; /* Medium gray text */
+    text-align: left; /* Align text to the left */
+}
+
+.content button {
+    background-color: #007bff; /* Blue button */
+    color: #fff; /* White text */
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.content button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Move button up slightly */
+}
+
+/* View mode styles */
+.view-mode label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333; /* Dark gray text */
+}
+
+.view-mode p {
+    margin-bottom: 20px;
+    color: #555; /* Medium gray text */
+    text-align: left; /* Align text to the left */
+}
+
+.view-mode button {
+    background-color: #007bff; /* Blue button */
+    color: #fff; /* White text */
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.view-mode button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Move button up slightly */
+}
+/* Make delete button red */
+#deleteBtn {
+    background-color: #dc3545; /* Red */
+}
+
+#deleteBtn:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Edit mode */
+.edit-mode input,
+.edit-mode textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 24px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #333; /* Dark gray text */
+}
+
+.edit-mode textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.edit-mode input:focus,
+.edit-mode textarea:focus {
+    outline: none;
+    border-color: #4a90e2; /* Adjust focus border color */
+}
+
+.edit-mode button {
+    margin-top: 20px;
+}
+
+.approval-btn {
+    display: inline-block;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+
+}
+
+.approval-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}

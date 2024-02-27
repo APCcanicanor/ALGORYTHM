@@ -9,7 +9,6 @@
 </head>
 <body>
 
-
 <!-- Navbar -->
 <nav>
     <div class="logo-container">
@@ -20,7 +19,7 @@
 
     <ul class="menu">
         <li><a class="active" href="/dashboard">Home</a></li>
-        <li><a href="courses">Courses</a></li>
+        <li><a href="/courses">Courses</a></li>
 
         <!-- Dropdown Menu -->
         <li class="dropdown">
@@ -28,15 +27,15 @@
             <ul class="dropdown-menu">
                 @auth
                     @if(Auth::user()->role === 'teacher' || Auth::user()->role === 'executive')
-                        <li><a href="create">Create</a></li>
+                        <li><a href="/create">Create</a></li>
                     @endif
 
                     @if(Auth::user()->role === 'teacher' || Auth::user()->role === 'executive')
-                        <li><a href="YourWorks">Your Works</a></li>
+                        <li><a href="/YourWorks">Your Works</a></li>
                     @endif
 
                     @if(Auth::user()->role === 'executive')
-                        <li><a href="forApproval">Pending Approval</a></li>
+                        <li><a href="/forApproval">Pending Approval</a></li>
                     @endif
                     <li><a href="{{ route('profile.show') }}">Profile</a></li>
                 @endauth
@@ -44,7 +43,6 @@
         </li>
     </ul>
 </nav>
-
 
 
 

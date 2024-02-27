@@ -9,10 +9,12 @@ class TeacherOrExecutive
 {
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user() && ($request->user()->role === 'teacher' || $request->user()->role === 'executive')) {
+        if ($request->user() && ($request->user()->role === 'executive' || $request->user()->role === 'teacher')) {
             return $next($request);
         }
 
-        return redirect('/dashboard'); // Redirect to dashboard or any other page
+        // If the user is not an executive, return a response with JavaScript code to show a popup
+        $popupMessage = "You do not have permission to access this page.";
+        return response()->view('popup', compact('popupMessage'));
     }
 }

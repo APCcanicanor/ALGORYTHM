@@ -29,6 +29,11 @@
                     @if(Auth::user()->role === 'teacher' || Auth::user()->role === 'executive')
                         <li><a href="create">Create</a></li>
                     @endif
+
+                    @if(Auth::user()->role === 'teacher' || Auth::user()->role === 'executive')
+                        <li><a href="YourWorks">Your Works</a></li>
+                    @endif
+
                     @if(Auth::user()->role === 'executive')
                         <li><a href="forApproval">Pending Approval</a></li>
                     @endif

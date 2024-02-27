@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Syllabus</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/create.css') }}">
+    <title>Your Works</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/yWorks.css') }}">
 </head>
 <body>
 
@@ -43,29 +43,16 @@
     </ul>
 </nav>
 
-<!-- Course Syllabus -->
-<div class="course-syllabus">
-    <h1>Interactive Course Syllabus</h1>
-    <form>
-        <label for="courseTitle">Course Title:</label>
-        <input type="text" id="courseTitle" name="courseTitle" required>
-
-        <label for="instructor">Instructor:</label>
-        <input type="text" id="instructor" name="instructor" value="{{ auth()->user()->name }}" required readonly>
-
-        <label for="courseDescription">Course Description:</label>
-        <textarea id="courseDescription" name="courseDescription" required></textarea>
-
-        <label for="courseOutline">Course Outline:</label>
-        <textarea id="courseOutline" name="courseOutline" required></textarea>
-
-        <div class="button-container">
-            <button type="button">Generate AI Text</button>
-            <div id="aiResponse"></div>
-            <button id="submitButton" type="button">Save and Submit for Approval</button>
-        </div>
-    </form>
+<!-- Content section -->
+<div class="content">
+    <div class="button-container">
+        <button class="create-button">Create</button>
+    </div>
+    <div class="saved-content">
+        <!-- Your saved content goes here -->
+    </div>
 </div>
+
 
 
 

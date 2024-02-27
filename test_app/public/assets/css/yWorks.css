@@ -1,0 +1,150 @@
+/* General styles */
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Navbar styles */
+nav {
+    background-color: #3b5998; /* Dark blue */
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.menu li {
+    margin-left: 20px;
+}
+
+.menu a {
+    color: #ffffff; /* White text */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: #4a6ea9; /* Darker blue on hover */
+}
+
+/* Dropdown styles */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #ffffff; /* White */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    color: #333333; /* Dark gray */
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Footer styles */
+.footer {
+    position: fixed; /* Position the footer */
+    bottom: 0; /* Stick it to the bottom */
+    width: 100%; /* Full width */
+    background-color: #04558b;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* Content section styles */
+.content {
+    margin-top: 80px; /* Adjust according to your navbar height */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Button container styles */
+.button-container {
+    text-align: left;
+}
+
+/* Button styles */
+.create-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.create-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Saved content styles */
+.saved-content {
+    flex-grow: 1;
+    margin-left: 20px; /* Add some space between button and saved content */
+}
+

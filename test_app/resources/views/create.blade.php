@@ -82,9 +82,11 @@
         <div class="button-container">
             <button type="button">Generate AI Text</button>
             <div id="aiResponse"></div>
-            <button id="submitButton" type="submit">Save and Submit for Approval</button>
+            <button id="saveButton" type="button">Save</button>
+            <button id="submitButton" type="submit">Submit for Approval</button>
         </div>
     </form>
+
 </div>
 
 <!-- Pop-up Message Container -->
@@ -98,31 +100,57 @@
 </footer>
 
 <script>
-    $(document).ready(function() {
-        $('#syllabusForm').submit(function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Perform AJAX request to submit form data
-            var formData = $(this).serialize();
-            $.ajax({
-                type: 'POST',
-                url: $(this).attr('action'),
-                data: formData,
-                success: function(response) {
-                    // Display success message if data was successfully stored
-                    if (response.success) {
-                        $('#popupContainer').html('<p>Syllabus created successfully!</p>').fadeIn().delay(2000).fadeOut();
-                        $('#syllabusForm')[0].reset(); // Reset the form inputs
-                    } else {
-                        $('#popupContainer').html('<p>Failed to create syllabus. Please try again.</p>').fadeIn().delay(2000).fadeOut();
-                    }
-                },
-                error: function() {
-                    $('#popupContainer').html('<p>An error occurred. Please try again.</p>').fadeIn().delay(2000).fadeOut();
+ $(document).ready(function() {
+    $('#saveButton').click(function() {
+        // Perform AJAX request to save form data
+        var formData = $('#syllabusForm').serialize();
+        $.ajax({
+            type: 'POST',
+            url: '{{ route("store-syllabus.create") }}',
+            data: formData,
+            success: function(response) {
+                if (response.success) {
+                    // Show success message
+                    $('#popupContainer').html('<p>Syllabus saved successfully!</p>').fadeIn().delay(2000).fadeOut();
+                    // Reset the form inputs
+                    $('#syllabusForm')[0].reset();
+                } else {
+                    // Show error message
+                    $('#popupContainer').html('<p>Failed to save syllabus. Please try again.</p>').fadeIn().delay(2000).fadeOut();
                 }
-            });
+            },
+            error: function() {
+                // Show error message
+                $('#popupContainer').html('<p>An error occurred. Please try again.</p>').fadeIn().delay(2000).fadeOut();
+            }
         });
     });
+
+    $('#syllabusForm').submit(function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Perform AJAX request to submit form data
+        var formData = $(this).serialize();
+        $.ajax({
+            type: 'POST',
+            url: $(this).attr('action'),
+            data: formData,
+            success: function(response) {
+                // Display success message if data was successfully stored
+                if (response.success) {
+                    $('#popupContainer').html('<p>Syllabus sent successfully!</p>').fadeIn().delay(2000).fadeOut();
+                    $('#syllabusForm')[0].reset(); // Reset the form inputs
+                } else {
+                    $('#popupContainer').html('<p>Failed to create syllabus. Please try again.</p>').fadeIn().delay(2000).fadeOut();
+                }
+            },
+            error: function() {
+                $('#popupContainer').html('<p>An error occurred. Please try again.</p>').fadeIn().delay(2000).fadeOut();
+            }
+        });
+    });
+});
+
 </script>
 
 

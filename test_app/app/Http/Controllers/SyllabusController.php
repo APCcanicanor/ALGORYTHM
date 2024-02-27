@@ -17,11 +17,10 @@ class SyllabusController extends Controller
                 'courseOutline' => $request->input('courseOutline')
             ]);
 
-            // Redirect to both "forApproval" and "YourWorks" routes
-            return redirect()->route('forApproval')->with('success', 'Syllabus created successfully.')
-                             ->route('YourWorks')->with('success', 'Syllabus created successfully.');
+            return response()->json(['success' => true, 'message' => 'Successfully created the Syllabus']);
         } catch (\Exception $e) {
             return response()->json(['success' => false, 'message' => 'Failed to create syllabus. Please try again.'], 500);
         }
     }
+
 }

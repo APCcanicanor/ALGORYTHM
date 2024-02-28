@@ -4,29 +4,25 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateBiologyDepartmentsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
-        Schema::create('syllabi', function (Blueprint $table) {
+        Schema::create('biology_departments', function (Blueprint $table) {
             $table->id();
             $table->string('courseTitle');
             $table->string('instructor');
             $table->text('courseDescription');
             $table->text('courseOutline');
+            $table->string('department')->default('Biology'); // Set default value to 'Biology'
             $table->timestamps();
         });
-
     }
+    
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('syllabi');
+        Schema::dropIfExists('biology_departments');
     }
-};
+}
+

@@ -59,11 +59,23 @@
         <p id="courseOutline">{{ $approval->courseOutline }}</p>
 
         <!-- Accept and Reject Buttons -->
-        <button type="submit">Accept</button>
-        <button type="submit">Reject</button>
+        <form action="{{ route('approve.syllabus', $approval->id) }}" method="POST">
+            @csrf
+            <label for="department">Select Department:</label>
+            <select name="department" id="department">
+                <option value="IT">IT Department</option>
+                <option value="Biology">Biology Department</option>
+                <!-- Add more departments as needed -->
+            </select>
+            <button type="submit">Accept</button>
+        </form>
+
+        <form action="{{ route('reject.approval', $approval->id) }}" method="POST">
+            @csrf
+            <button type="submit">Reject</button>
+        </form>
     </div>
 </section>
-
 
 <footer class="footer">
     <div class="container">

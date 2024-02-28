@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Works</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/biology.css') }}">
+    <title>For Approvals</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/sfa.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
@@ -44,19 +44,22 @@
     </ul>
 </nav>
 
-<div class="content">
-    @foreach($bio as $biology)
-    <div class="card">
-        <a href="{{ route('content.view-biology', $biology->id) }}">
-            <h3>{{ $biology->courseTitle }}</h3>
-            <p>Instructor: {{ $biology->instructor }}</p>
-            <!-- Add more details as needed -->
-        </a>
-    </div>
-    @endforeach
-</div>
+<section class="content">
+    <div class="view-mode">
+        <label for="courseTitle">Course Title:</label>
+        <p id="courseTitle">{{ $bio->courseTitle }}</p>
 
-<!-- Footer -->
+        <label for="instructor">Instructor:</label>
+        <p id="instructor">{{ $bio->instructor }}</p>
+
+        <label for="courseDescription">Description:</label>
+        <p id="courseDescription">{{ $bio->courseDescription }}</p>
+
+        <label for="courseOutline">Outline:</label>
+        <p id="courseOutline">{{ $bio->courseOutline }}</p>
+    </div>
+</section>
+
 <footer class="footer">
     <div class="container">
         <p>&copy; 2024 ALGORYTHM2.0. All rights reserved.</p>

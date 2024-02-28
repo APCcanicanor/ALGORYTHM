@@ -5,6 +5,8 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\SyllabusController;
 use App\Http\Controllers\ShowSyllabusController;
 use App\Http\Controllers\ApprovalController;
+use App\Http\Controllers\viewITController;
+use App\Http\Controllers\biologyController;
 
 
 /*
@@ -42,7 +44,14 @@ Route::post('/syllabus/sendForApproval/{id}', [ShowSyllabusController::class, 's
 Route::get('/forApproval', [ApprovalController::class, 'show'])->name('forApproval');
 Route::get('/syllabus/sendForApproval/{id}', [ApprovalController::class, 'details'])->name('syllabus.sendForApproval');
 
+Route::post('/reject-approval/{id}', [ApprovalController::class, 'rejectApproval'])->name('reject.approval');
+Route::post('/approve-syllabus/{id}', [ApprovalController::class, 'approveSyllabus'])->name('approve.syllabus');
 
+Route::get('/view_syllabus.IT', [viewITController::class, 'show'])->name('view_syllabus.IT');
+Route::get('/view_syllabus.IT/{id}', [viewITController::class, 'details'])->name('it-view');
+
+Route::get('/view_syllabus.biology', [biologyController::class, 'show'])->name('view_syllabus.biology');
+Route::get('/contents.view-biology/{id}', [biologyController::class, 'details'])->name('content.view-biology');
 
 
 

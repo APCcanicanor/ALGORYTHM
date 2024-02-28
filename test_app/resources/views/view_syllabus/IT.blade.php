@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>IT Department</title>
+    <title>Your Works</title>
     <link rel="stylesheet" href="{{ asset('assets/css/IT.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-
 
 <!-- Navbar -->
 <nav>
@@ -21,7 +19,7 @@
 
     <ul class="menu">
         <li><a class="active" href="/dashboard">Home</a></li>
-        <li><a href="courses">Courses</a></li>
+        <li><a href="/courses">Courses</a></li>
 
         <!-- Dropdown Menu -->
         <li class="dropdown">
@@ -29,15 +27,15 @@
             <ul class="dropdown-menu">
                 @auth
                     @if(Auth::user()->role === 'teacher' || Auth::user()->role === 'executive')
-                        <li><a href="create">Create</a></li>
+                        <li><a href="/create">Create</a></li>
                     @endif
 
                     @if(Auth::user()->role === 'teacher' || Auth::user()->role === 'executive')
-                        <li><a href="YourWorks">Your Works</a></li>
+                        <li><a href="/YourWorks">Your Works</a></li>
                     @endif
 
                     @if(Auth::user()->role === 'executive')
-                        <li><a href="forApproval">Pending Approval</a></li>
+                        <li><a href="/forApproval">Pending Approval</a></li>
                     @endif
                     <li><a href="{{ route('profile.show') }}">Profile</a></li>
                 @endauth
@@ -45,15 +43,25 @@
         </li>
     </ul>
 </nav>
-<!-- section -->
 
+<div class="content">
+    @foreach($IT as $IT)
+    <div class="card">
+        <a href="{{ route('it-view', $IT->id) }}">
+            <h3>{{ $IT->courseTitle }}</h3>
+            <p>Instructor: {{ $IT->instructor }}</p>
+            <!-- Add more details as needed -->
+        </a>
+    </div>
+    @endforeach
+</div>
 
+<!-- Footer -->
 <footer class="footer">
     <div class="container">
         <p>&copy; 2024 ALGORYTHM2.0. All rights reserved.</p>
     </div>
 </footer>
-
 
 </body>
 </html>

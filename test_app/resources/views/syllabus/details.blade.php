@@ -46,6 +46,7 @@
 
 <!-- Content section -->
 <section class="content">
+    <!-- Display syllabus details and buttons -->
     <div class="view-mode">
         <label for="courseTitle">Course Title:</label>
         <p id="courseTitle">{{ $data->courseTitle }}</p>
@@ -65,12 +66,15 @@
             @method('DELETE')
             <button type="button" id="deleteBtn">Delete</button>
         </form>
-        <!-- Button to redirect to forApproval page -->
-        <a href="#" class="approval-btn">Send for Approval</a>
+        <!-- Button to send syllabus for approval -->
+        <form action="{{ route('syllabus.sendForApproval', $data->id) }}" method="POST" id="sendForApprovalForm">
+            @csrf
+            <button type="submit" class="approval-btn" onclick="return confirmAndSend()">Send for Approval</button>
+        </form>
     </div>
+    <!-- Form for editing -->
     <div class="edit-mode" style="display: none;">
         <button id="backBtn">Back</button>
-        <!-- Form for editing -->
         <form id="editForm" action="{{ route('syllabus.update', $data->id) }}" method="POST">
             @csrf
             @method('PUT')
@@ -95,6 +99,17 @@
 <!-- JavaScript -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+    // Function to confirm sending for approval and display a message
+    function confirmAndSend() {
+        if (confirm('Are you sure you want to send this for approval?')) {
+            alert('Syllabus sent for approval successfully!');
+            return true; // Submit the form
+        } else {
+            return false; // Cancel the form submission
+        }
+    }
+
+    // jQuery for toggling between view mode and edit mode
     $(document).ready(function() {
         $('#startEditingBtn').click(function() {
             $('.view-mode').hide();

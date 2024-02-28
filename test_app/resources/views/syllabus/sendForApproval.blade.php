@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Works</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/approval.css') }}">
+    <title>For Approvals</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/sfa.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
@@ -44,19 +44,27 @@
     </ul>
 </nav>
 
-<div class="content">
-    @foreach($approval as $syllabus)
-    <div class="card">
-        <a href="{{ route('syllabus.sendForApproval', $syllabus->id) }}">
-            <h3>{{ $syllabus->courseTitle }}</h3>
-            <p>Instructor: {{ $syllabus->instructor }}</p>
-            <!-- Add more details as needed -->
-        </a>
-    </div>
-    @endforeach
-</div>
+<section class="content">
+    <div class="view-mode">
+        <label for="courseTitle">Course Title:</label>
+        <p id="courseTitle">{{ $approval->courseTitle }}</p>
 
-<!-- Footer -->
+        <label for="instructor">Instructor:</label>
+        <p id="instructor">{{ $approval->instructor }}</p>
+
+        <label for="courseDescription">Description:</label>
+        <p id="courseDescription">{{ $approval->courseDescription }}</p>
+
+        <label for="courseOutline">Outline:</label>
+        <p id="courseOutline">{{ $approval->courseOutline }}</p>
+
+        <!-- Accept and Reject Buttons -->
+        <button type="submit">Accept</button>
+        <button type="submit">Reject</button>
+    </div>
+</section>
+
+
 <footer class="footer">
     <div class="container">
         <p>&copy; 2024 ALGORYTHM2.0. All rights reserved.</p>

@@ -83,7 +83,6 @@
             <button type="button">Generate AI Text</button>
             <div id="aiResponse"></div>
             <button id="saveButton" type="button">Save</button>
-            <button id="submitButton" type="submit">Submit for Approval</button>
         </div>
     </form>
 

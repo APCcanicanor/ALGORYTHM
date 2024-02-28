@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\SyllabusController;
 use App\Http\Controllers\ShowSyllabusController;
+use App\Http\Controllers\ApprovalController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,14 @@ Route::get('/syllabus/{id}', [ShowSyllabusController::class, 'details'])->name('
 Route::get('/syllabus/{id}/edit', [ShowSyllabusController::class, 'edit'])->name('syllabus.edit');
 Route::put('/syllabus/{id}', [ShowSyllabusController::class, 'update'])->name('syllabus.update');
 Route::delete('/syllabus/{id}', [ShowSyllabusController::class, 'destroy'])->name('syllabus.destroy');
+Route::post('/syllabus/sendForApproval/{id}', [ShowSyllabusController::class, 'sendForApproval'])->name('syllabus.sendForApproval');
+
+Route::get('/forApproval', [ApprovalController::class, 'show'])->name('forApproval');
+Route::get('/syllabus/sendForApproval/{id}', [ApprovalController::class, 'details'])->name('syllabus.sendForApproval');
+
+
+
+
 
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Syllabus;
+use App\Models\ForApproval;
 
 class ShowSyllabusController extends Controller
 {
@@ -52,4 +53,22 @@ class ShowSyllabusController extends Controller
 
         return redirect()->route('YourWorks')->with('success', 'Syllabus deleted successfully!');
     }
+    public function sendForApproval($id)
+    {
+        // Retrieve the specific syllabus data to be sent for approval
+        $syllabus = Syllabus::findOrFail($id);
+
+        // Create a new record in the 'for_approval' table
+        ForApproval::create($syllabus->toArray());
+
+        // Optionally, delete the data from the 'syllabi' table
+        $syllabus->delete();
+
+        // Redirect back with success message
+        return redirect()->route('YourWorks')->with('success', 'Syllabus sent for approval successfully!');
+    }
+
+
+
+
 }

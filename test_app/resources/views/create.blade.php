@@ -53,7 +53,7 @@
                     @endif
 
                     @if(Auth::user()->role === 'executive')
-                        <li><a href="/forApproval">Pending Approval</a></li>
+                        <li><a href="/forApproval">Approval</a></li>
                     @endif
                     <li><a href="{{ route('profile.show') }}">Profile</a></li>
                 @endauth
@@ -80,7 +80,8 @@
         <textarea id="courseOutline" name="courseOutline" required></textarea>
 
         <div class="button-container">
-            <button type="button">Generate AI Text</button>
+            <!-- Modify the button to trigger the redirect -->
+            <button id="askAIButton" type="button">Ask AI</button>
             <div id="aiResponse"></div>
             <button id="saveButton" type="button">Save</button>
         </div>
@@ -148,11 +149,14 @@
             }
         });
     });
+
+    // Add event listener for the ask AI button to redirect to askAI.blade.php
+    $('#askAIButton').click(function() {
+        window.location.href = "{{ route('askAI') }}";
+    });
 });
 
 </script>
-
-
 
 </body>
 </html>

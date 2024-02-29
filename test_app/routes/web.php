@@ -25,6 +25,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {Route::get('/courses', function () {return view('courses');})->name('courses');});
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {Route::get('/IT', function () {return view('view_syllabus.IT');})->name('view_syllabus.IT');});
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {Route::get('/biology', function () {return view('view_syllabus.biology');})->name('view_syllabus.biology');});
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {Route::get('/askAI', function () {return view('askAI');})->name('askAI');});
 
 Route::get('/create', function () {return view('create');})->middleware('auth', 'teacher_or_executive');
 Route::get('/YourWorks', function () {return view('YourWorks');})->middleware('auth', 'teacher_or_executive');
@@ -32,6 +33,9 @@ Route::get('/forApproval', function () {return view('forApproval');})->middlewar
 
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 Route::post('/store-syllabus', [SyllabusController::class, 'store'])->name('store-syllabus.create');
+Route::get('/askAI', function () {return view('askAI');})->name('askAI');
+
+
 
 
 Route::get('/YourWorks', [ShowSyllabusController::class, 'show'])->name('YourWorks');
@@ -53,7 +57,7 @@ Route::get('/view_syllabus.IT/{id}', [viewITController::class, 'details'])->name
 Route::get('/view_syllabus.biology', [biologyController::class, 'show'])->name('view_syllabus.biology');
 Route::get('/contents.view-biology/{id}', [biologyController::class, 'details'])->name('content.view-biology');
 
-
+Route::post('/chat', 'App\Http\Controllers\ChatController');
 
 
 

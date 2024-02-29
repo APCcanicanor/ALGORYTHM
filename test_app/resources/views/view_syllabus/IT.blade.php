@@ -10,6 +10,7 @@
 <body>
 
 <!-- Navbar -->
+<!-- Navbar -->
 <nav>
     <div class="logo-container">
         <a href="/dashboard">
@@ -35,7 +36,7 @@
                     @endif
 
                     @if(Auth::user()->role === 'executive')
-                        <li><a href="/forApproval">Pending Approval</a></li>
+                        <li><a href="/forApproval">Approval</a></li>
                     @endif
                     <li><a href="{{ route('profile.show') }}">Profile</a></li>
                 @endauth

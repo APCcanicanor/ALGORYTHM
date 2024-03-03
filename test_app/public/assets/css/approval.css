@@ -1,4 +1,4 @@
-/* General styles */
+/* Reset Styles */
 * {
     padding: 0;
     margin: 0;
@@ -7,12 +7,13 @@
     box-sizing: border-box;
 }
 
+/* Body Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f4f4f4; /* Light gray */
 }
 
-/* Navbar styles */
+/* Navbar Styles */
 nav {
     background-color: #3b5998; /* Dark blue */
     height: 60px;
@@ -59,7 +60,7 @@ nav {
     background-color: #4a6ea9; /* Darker blue on hover */
 }
 
-/* Dropdown styles */
+/* Dropdown Styles */
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -90,12 +91,12 @@ nav {
     display: block;
 }
 
-/* Footer styles */
+/* Footer Styles */
 .footer {
     position: fixed; /* Position the footer */
     bottom: 0; /* Stick it to the bottom */
     width: 100%; /* Full width */
-    background-color: #04558b;
+    background-color: #04558b; /* Dark blue */
     color: white;
     padding: 30px 0;
     text-align: center;
@@ -112,7 +113,7 @@ nav {
     margin: 0;
 }
 
-/* Content section styles */
+/* Content Section Styles */
 .content {
     margin-top: 80px; /* Adjust according to your navbar height */
     padding: 20px;
@@ -121,12 +122,12 @@ nav {
     gap: 20px; /* Add space between cards */
 }
 
-/* Button container styles */
+/* Button Container Styles */
 .button-container {
     text-align: left;
 }
 
-/* Button styles */
+/* Button Styles */
 .create-button {
     background-color: #4CAF50; /* Green */
     border: none;
@@ -143,13 +144,13 @@ nav {
     background-color: #45a049; /* Darker green on hover */
 }
 
-/* Saved content styles */
+/* Saved Content Styles */
 .saved-content {
     flex-grow: 1;
     margin-left: 20px; /* Add some space between button and saved content */
 }
 
-/* Card styles */
+/* Card Styles */
 .card {
     background-color: #ffffff; /* White background */
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
@@ -159,6 +160,22 @@ nav {
     margin-bottom: 40px; /* Add space between rows */
 }
 
+/* Card styles for pending syllabi */
+.card.pending {
+    background-color: #ffeb3b; /* Yellow background */
+}
+
+/* Card styles for rejected syllabi */
+.card.rejected {
+    background-color: #f44336; /* Red background */
+}
+
+/* Card styles for approved syllabi */
+.card.approved {
+    background-color: #4caf50; /* Green background */
+}
+
+/* Responsive Styles */
 @media screen and (max-width: 768px) {
     .card {
         flex-basis: calc(50% - 40px); /* Adjust card width for smaller screens */

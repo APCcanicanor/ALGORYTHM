@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('instructor');
             $table->text('courseDescription');
             $table->text('courseOutline');
+            $table->string('status')->default('pending'); // Add status column with default value 'pending'
             $table->timestamps();
         });
 

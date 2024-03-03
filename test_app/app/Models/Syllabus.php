@@ -9,5 +9,5 @@ class Syllabus extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['courseTitle', 'courseDescription', 'courseOutline', 'instructor'];
+    protected $fillable = ['courseTitle', 'instructor', 'courseDescription', 'courseOutline', 'status'];
 }

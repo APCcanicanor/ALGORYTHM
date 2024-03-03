@@ -11,7 +11,6 @@ class ForApproval extends Model
 
     protected $table = 'for_approval'; // Specify the table name
 
-    protected $fillable = ['courseTitle', 'instructor', 'courseDescription', 'courseOutline'];
-
+    protected $fillable = ['courseTitle', 'instructor', 'courseDescription', 'courseOutline', 'status'];
     // Define any relationships or additional methods here
 }

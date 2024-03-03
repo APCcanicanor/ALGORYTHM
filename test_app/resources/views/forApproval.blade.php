@@ -45,16 +45,61 @@
 </nav>
 
 <div class="content">
-    @foreach($approval as $syllabus)
-    <div class="card">
+    <!-- History Button -->
+    <button id="historyBtn">See History</button>
+
+    <!-- History Section -->
+    <div id="historySection" style="display: none;">
+        <h2>History</h2>
+        @foreach($rejected as $syllabus)
+        <div class="card rejected">
+            <a href="{{ route('syllabus.sendForApproval', $syllabus->id) }}">
+                <h3>{{ $syllabus->courseTitle }}</h3>
+                <p>Instructor: {{ $syllabus->instructor }}</p>
+                <p>Status: Rejected</p>
+                <!-- Add more details as needed -->
+            </a>
+            <!-- Delete button -->
+            <form action="{{ route('delete.syllabus', $syllabus->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+        @endforeach
+
+        @foreach($approved as $syllabus)
+        <div class="card approved">
+            <a href="{{ route('syllabus.sendForApproval', $syllabus->id) }}">
+                <h3>{{ $syllabus->courseTitle }}</h3>
+                <p>Instructor: {{ $syllabus->instructor }}</p>
+                <p>Status: Approved</p>
+                <!-- Add more details as needed -->
+            </a>
+            <!-- Delete button -->
+            <form action="{{ route('delete.syllabus', $syllabus->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+        @endforeach
+    </div>
+
+    <!-- Pending Syllabi -->
+    <h2>Pending Syllabi</h2>
+    @foreach($pending as $syllabus)
+    <div class="card pending">
         <a href="{{ route('syllabus.sendForApproval', $syllabus->id) }}">
             <h3>{{ $syllabus->courseTitle }}</h3>
             <p>Instructor: {{ $syllabus->instructor }}</p>
+            <p>Status: Pending</p>
             <!-- Add more details as needed -->
         </a>
     </div>
     @endforeach
 </div>
+
 
 <!-- Footer -->
 <footer class="footer">
@@ -62,6 +107,18 @@
         <p>&copy; 2024 ALGORYTHM2.0. All rights reserved.</p>
     </div>
 </footer>
+
+<!-- JavaScript to toggle visibility -->
+<script>
+    document.getElementById('historyBtn').addEventListener('click', function() {
+        var historySection = document.getElementById('historySection');
+        if (historySection.style.display === 'none') {
+            historySection.style.display = 'block';
+        } else {
+            historySection.style.display = 'none';
+        }
+    });
+</script>
 
 </body>
 </html>

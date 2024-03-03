@@ -45,16 +45,21 @@
 </nav>
 
 <div class="content">
-    @foreach($data as $syllabus)
-    <div class="card">
-        <a href="{{ route('syllabus.details', $syllabus->id) }}">
-            <h3>{{ $syllabus->courseTitle }}</h3>
-            <p>Instructor: {{ $syllabus->instructor }}</p>
-            <!-- Add more details as needed -->
-        </a>
-    </div>
-    @endforeach
+    @if($data->isEmpty())
+        <p>You have no works.</p>
+    @else
+        @foreach($data as $syllabus)
+        <div class="card">
+            <a href="{{ route('syllabus.details', $syllabus->id) }}">
+                <h3>{{ $syllabus->courseTitle }}</h3>
+                <p>Instructor: {{ $syllabus->instructor }}</p>
+                <!-- Add more details as needed -->
+            </a>
+        </div>
+        @endforeach
+    @endif
 </div>
+
 
 <!-- Footer -->
 <footer class="footer">

@@ -59,5 +59,5 @@ Route::get('/contents.view-biology/{id}', [biologyController::class, 'details'])
 
 Route::post('/chat', 'App\Http\Controllers\ChatController');
 
-
+Route::delete('/delete-syllabus/{id}', [ApprovalController::class, 'delete'])->name('delete.syllabus');
 

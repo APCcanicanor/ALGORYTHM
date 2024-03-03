@@ -35,7 +35,7 @@
                     @endif
 
                     @if(Auth::user()->role === 'executive')
-                        <li><a href="/forApproval">Pending Approval</a></li>
+                        <li><a href="/forApproval">Approval</a></li>
                     @endif
                     <li><a href="{{ route('profile.show') }}">Profile</a></li>
                 @endauth
@@ -58,7 +58,8 @@
         <label for="courseOutline">Outline:</label>
         <p id="courseOutline">{{ $approval->courseOutline }}</p>
 
-        <!-- Accept and Reject Buttons -->
+        <!-- Accept and Reject Buttons (with conditional disabling) -->
+        @if ($approval->status === 'pending')
         <form action="{{ route('approve.syllabus', $approval->id) }}" method="POST">
             @csrf
             <label for="department">Select Department:</label>
@@ -74,6 +75,7 @@
             @csrf
             <button type="submit">Reject</button>
         </form>
+        @endif
     </div>
 </section>
 

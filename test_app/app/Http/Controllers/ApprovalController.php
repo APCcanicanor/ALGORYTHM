@@ -4,46 +4,46 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\ForApproval;
-use Illuminate\Http\Request;
 use App\Models\Syllabus;
-use Illuminate\Support\Facades\DB; // Import the DB facade
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ApprovalController extends Controller
 {
-
     public function show()
     {
-        $approval = ForApproval::all();
-        return view('forApproval', compact('approval'));
+        $rejected = ForApproval::where('status', 'rejected')->get();
+        $approved = ForApproval::where('status', 'approved')->get();
+        $pending = ForApproval::where('status', 'pending')->get();
+
+        return view('forApproval', compact('rejected', 'approved', 'pending'));
     }
 
-    // Show a specific syllabus
     public function details($id)
     {
         $approval = ForApproval::findOrFail($id);
         return view('syllabus.sendForApproval', compact('approval'));
     }
 
-    // Reject approval and move data to syllabi table
     public function rejectApproval($id)
     {
-        // Find the data to be rejected
+        // Find the syllabus awaiting approval
         $forApproval = ForApproval::findOrFail($id);
 
-        // Create a new entry in the syllabi table with the rejected data
+        // Update the status to 'rejected' in the for_approval table
+        $forApproval->update(['status' => 'rejected']);
+
+        // Move the rejected syllabus back to the syllabus table with status 'rejected'
         Syllabus::create([
             'courseTitle' => $forApproval->courseTitle,
             'instructor' => $forApproval->instructor,
             'courseDescription' => $forApproval->courseDescription,
             'courseOutline' => $forApproval->courseOutline,
+            'status' => 'rejected' // Set status to 'rejected'
         ]);
-
-        // Delete the rejected entry from the for_approval table
-        $forApproval->delete();
 
         // Redirect or return a response as needed
         return redirect()->route('forApproval')->with('status', 'The approval has been rejected successfully.');
-
     }
 
     public function approveSyllabus(Request $request, $id)
@@ -70,11 +70,21 @@ class ApprovalController extends Controller
         // Insert the data into the respective department's table
         DB::table($tableName)->insert($newEntry);
 
-        // Delete the approved syllabus from the approval table
-        $syllabus->delete();
+        // Update the status to 'approved' in the for_approval table
+        $syllabus->update(['status' => 'approved']);
 
         // Redirect with a success message
         return redirect()->route('forApproval')->with('status', 'The syllabus has been approved and stored in the ' . $department . ' department.');
     }
 
+    public function delete($id)
+    {
+        $syllabus = ForApproval::findOrFail($id);
+
+        // Delete the syllabus
+        $syllabus->delete();
+
+        // Redirect with a success message
+        return redirect()->route('forApproval')->with('status', 'The syllabus has been deleted successfully.');
+    }
 }

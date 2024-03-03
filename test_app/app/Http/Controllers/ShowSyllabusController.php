@@ -53,22 +53,25 @@ class ShowSyllabusController extends Controller
 
         return redirect()->route('YourWorks')->with('success', 'Syllabus deleted successfully!');
     }
+
     public function sendForApproval($id)
     {
         // Retrieve the specific syllabus data to be sent for approval
         $syllabus = Syllabus::findOrFail($id);
 
         // Create a new record in the 'for_approval' table
-        ForApproval::create($syllabus->toArray());
+        ForApproval::create([
+            'courseTitle' => $syllabus->courseTitle,
+            'instructor' => $syllabus->instructor,
+            'courseDescription' => $syllabus->courseDescription,
+            'courseOutline' => $syllabus->courseOutline,
+            'status' => 'pending' // Set the status to 'pending' when sending for approval
+        ]);
 
-        // Optionally, delete the data from the 'syllabi' table
+        // Delete the syllabus from the 'syllabus' table
         $syllabus->delete();
 
         // Redirect back with success message
         return redirect()->route('YourWorks')->with('success', 'Syllabus sent for approval successfully!');
     }
-
-
-
-
 }

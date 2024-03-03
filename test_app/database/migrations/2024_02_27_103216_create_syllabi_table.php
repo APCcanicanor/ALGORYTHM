@@ -18,9 +18,9 @@ return new class extends Migration
             $table->text('courseDescription');
             $table->text('courseOutline');
             $table->string('status')->default('pending'); // Add status column with default value 'pending'
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Add foreign key for user_id
             $table->timestamps();
         });
-
     }
 
     /**

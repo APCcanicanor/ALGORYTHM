@@ -10,12 +10,14 @@ class SyllabusController extends Controller
     public function store(Request $request)
     {
         try {
+            // Associate the created syllabus with the authenticated user
             $syllabus = Syllabus::create([
                 'courseTitle' => $request->input('courseTitle'),
                 'instructor' => $request->input('instructor'),
                 'courseDescription' => $request->input('courseDescription'),
                 'courseOutline' => $request->input('courseOutline'),
-                'status' => 'pending' // Set the initial status to 'pending'
+                'status' => 'pending', // Set the initial status to 'pending'
+                'user_id' => auth()->id(), // Associate with the authenticated user
             ]);
 
             return response()->json(['success' => true, 'message' => 'Successfully created the Syllabus']);

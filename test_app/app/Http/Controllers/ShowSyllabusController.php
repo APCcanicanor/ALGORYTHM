@@ -11,14 +11,16 @@ class ShowSyllabusController extends Controller
     // Show all syllabi
     public function show()
     {
-        $data = Syllabus::all();
+        // Fetch syllabi associated with the currently authenticated user
+        $data = Syllabus::where('user_id', auth()->id())->get();
         return view('YourWorks', compact('data'));
     }
 
     // Show a specific syllabus
     public function details($id)
     {
-        $data = Syllabus::findOrFail($id);
+        // Fetch the specific syllabus associated with the authenticated user
+        $data = Syllabus::where('user_id', auth()->id())->findOrFail($id);
         return view('syllabus.details', compact('data'));
     }
 

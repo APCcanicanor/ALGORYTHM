@@ -36,8 +36,11 @@ class ApprovalController extends Controller
 
     // Check if the user exists
     if ($user) {
-        // Move the rejected syllabus back to the syllabi table with status 'rejected'
-        Syllabus::create([
+        // Update the status of the syllabus to 'rejected' in the for_approval table
+        $forApproval->update(['status' => 'rejected']);
+
+        // Duplicate the rejected syllabus and assign it to the specific user
+        $rejectedSyllabus = new Syllabus([
             'courseTitle' => $forApproval->courseTitle,
             'instructor' => $forApproval->instructor,
             'courseDescription' => $forApproval->courseDescription,
@@ -45,9 +48,7 @@ class ApprovalController extends Controller
             'user_id' => $user->id, // Set the user_id
             'status' => 'rejected' // Set status to 'rejected'
         ]);
-
-        // Delete the rejected syllabus from the for_approval table
-        $forApproval->delete();
+        $rejectedSyllabus->save();
 
         // Redirect or return a response as needed
         return redirect()->route('forApproval')->with('status', 'The approval has been rejected successfully.');

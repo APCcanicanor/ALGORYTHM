@@ -44,7 +44,7 @@ Route::get('/syllabus/{id}/edit', [ShowSyllabusController::class, 'edit'])->name
 Route::put('/syllabus/{id}', [ShowSyllabusController::class, 'update'])->name('syllabus.update');
 Route::delete('/syllabus/{id}', [ShowSyllabusController::class, 'destroy'])->name('syllabus.destroy');
 Route::post('/syllabus/sendForApproval/{id}', [ShowSyllabusController::class, 'sendForApproval'])->name('syllabus.sendForApproval');
-Route::post('/syllabus/share/{id}', [ShowSyllabusController::class, 'share'])->name('syllabus.share'); // New route for sharing syllabus
+
 
 Route::get('/forApproval', [ApprovalController::class, 'show'])->name('forApproval');
 Route::get('/syllabus/sendForApproval/{id}', [ApprovalController::class, 'details'])->name('syllabus.sendForApproval');

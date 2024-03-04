@@ -10,11 +10,12 @@ class CreateForApprovalTable extends Migration
     {
         Schema::create('for_approval', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('courseTitle');
             $table->string('instructor');
             $table->text('courseDescription');
             $table->text('courseOutline');
-            $table->string('status')->default('pending'); // Add status column with default value 'pending'
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

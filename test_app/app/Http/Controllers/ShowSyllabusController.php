@@ -8,30 +8,28 @@ use App\Models\ForApproval;
 
 class ShowSyllabusController extends Controller
 {
-    // Show all syllabi
+    // Show all syllabi associated with the authenticated user
     public function show()
     {
-        // Fetch syllabi associated with the currently authenticated user
         $data = Syllabus::where('user_id', auth()->id())->get();
         return view('YourWorks', compact('data'));
     }
 
-    // Show a specific syllabus
+    // Show the details of a specific syllabus associated with the authenticated user
     public function details($id)
     {
-        // Fetch the specific syllabus associated with the authenticated user
         $data = Syllabus::where('user_id', auth()->id())->findOrFail($id);
         return view('syllabus.details', compact('data'));
     }
 
-    // Show the form for editing the specified syllabus
+    // Show the form for editing a specific syllabus associated with the authenticated user
     public function edit($id)
     {
         $data = Syllabus::findOrFail($id);
         return view('syllabus.edit', compact('data'));
     }
 
-    // Update the specified syllabus
+    // Update the specified syllabus associated with the authenticated user
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -47,7 +45,7 @@ class ShowSyllabusController extends Controller
         return redirect()->route('YourWorks')->with('success', 'Syllabus updated successfully!');
     }
 
-    // Remove the specified syllabus from storage.
+    // Delete the specified syllabus associated with the authenticated user
     public function destroy($id)
     {
         $data = Syllabus::findOrFail($id);
@@ -56,6 +54,7 @@ class ShowSyllabusController extends Controller
         return redirect()->route('YourWorks')->with('success', 'Syllabus deleted successfully!');
     }
 
+    // Send the specified syllabus associated with the authenticated user for approval
     public function sendForApproval($id)
     {
         // Retrieve the specific syllabus data to be sent for approval
@@ -67,7 +66,8 @@ class ShowSyllabusController extends Controller
             'instructor' => $syllabus->instructor,
             'courseDescription' => $syllabus->courseDescription,
             'courseOutline' => $syllabus->courseOutline,
-            'status' => 'pending' // Set the status to 'pending' when sending for approval
+            'status' => 'pending', // Set the status to 'pending' when sending for approval
+            'user_id' => auth()->id(), // Set the user_id to the authenticated user's id
         ]);
 
         // Delete the syllabus from the 'syllabus' table

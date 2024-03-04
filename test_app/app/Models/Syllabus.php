@@ -10,4 +10,12 @@ class Syllabus extends Model
     use HasFactory;
 
     protected $fillable = ['courseTitle', 'instructor', 'courseDescription', 'courseOutline', 'status', 'user_id'];
+
+    /**
+     * Define the relationship with the User model.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

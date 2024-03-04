@@ -7,6 +7,7 @@ use App\Models\ForApproval;
 use App\Models\Syllabus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ApprovalController extends Controller
 {
@@ -26,25 +27,39 @@ class ApprovalController extends Controller
     }
 
     public function rejectApproval($id)
-    {
-        // Find the syllabus awaiting approval
-        $forApproval = ForApproval::findOrFail($id);
+{
+    // Find the syllabus awaiting approval
+    $forApproval = ForApproval::findOrFail($id);
 
-        // Update the status to 'rejected' in the for_approval table
-        $forApproval->update(['status' => 'rejected']);
+    // Retrieve the user associated with the rejected syllabus
+    $user = $forApproval->user;
 
-        // Move the rejected syllabus back to the syllabus table with status 'rejected'
+    // Check if the user exists
+    if ($user) {
+        // Move the rejected syllabus back to the syllabi table with status 'rejected'
         Syllabus::create([
             'courseTitle' => $forApproval->courseTitle,
             'instructor' => $forApproval->instructor,
             'courseDescription' => $forApproval->courseDescription,
             'courseOutline' => $forApproval->courseOutline,
+            'user_id' => $user->id, // Set the user_id
             'status' => 'rejected' // Set status to 'rejected'
         ]);
 
+        // Delete the rejected syllabus from the for_approval table
+        $forApproval->delete();
+
         // Redirect or return a response as needed
         return redirect()->route('forApproval')->with('status', 'The approval has been rejected successfully.');
+    } else {
+        // Handle the case where the user is not found (e.g., log an error)
+        Log::error('User not found for rejected syllabus: ' . $forApproval->id);
+
+        // Redirect or return a response as needed
+        return redirect()->route('forApproval')->with('error', 'An error occurred while rejecting the approval.');
     }
+}
+
 
     public function approveSyllabus(Request $request, $id)
     {

@@ -11,6 +11,13 @@ class ForApproval extends Model
 
     protected $table = 'for_approval'; // Specify the table name
 
-    protected $fillable = ['courseTitle', 'instructor', 'courseDescription', 'courseOutline', 'status'];
-    // Define any relationships or additional methods here
+    protected $fillable = ['courseTitle', 'instructor', 'courseDescription', 'courseOutline', 'status', 'user_id'];
+
+    /**
+     * Define the relationship with the User model.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

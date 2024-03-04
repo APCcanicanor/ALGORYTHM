@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -58,4 +58,20 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    /**
+     * Get the for approvals associated with the user.
+     */
+    public function forApprovals(): HasMany
+    {
+        return $this->hasMany(ForApproval::class);
+    }
+
+    /**
+     * Get the syllabi associated with the user.
+     */
+    public function syllabi(): HasMany
+    {
+        return $this->hasMany(Syllabus::class);
+    }
 }

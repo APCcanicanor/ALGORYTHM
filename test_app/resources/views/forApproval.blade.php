@@ -88,16 +88,20 @@
 
     <!-- Pending Syllabi -->
     <h2>Pending Syllabi</h2>
-    @foreach($pending as $syllabus)
-    <div class="card pending">
-        <a href="{{ route('syllabus.sendForApproval', $syllabus->id) }}">
-            <h3>{{ $syllabus->courseTitle }}</h3>
-            <p>Instructor: {{ $syllabus->instructor }}</p>
-            <p>Status: Pending</p>
-            <!-- Add more details as needed -->
-        </a>
-    </div>
-    @endforeach
+    @if($pending->isEmpty())
+        <p>No pending approvals</p>
+    @else
+        @foreach($pending as $syllabus)
+            <div class="card pending">
+                <a href="{{ route('syllabus.sendForApproval', $syllabus->id) }}">
+                    <h3>{{ $syllabus->courseTitle }}</h3>
+                    <p>Instructor: {{ $syllabus->instructor }}</p>
+                    <p>Status: Pending</p>
+                    <!-- Add more details as needed -->
+                </a>
+            </div>
+        @endforeach
+    @endif
 </div>
 
 

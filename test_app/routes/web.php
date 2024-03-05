@@ -36,8 +36,6 @@ Route::post('/store-syllabus', [SyllabusController::class, 'store'])->name('stor
 Route::get('/askAI', function () {return view('askAI');})->name('askAI');
 
 
-
-
 Route::get('/YourWorks', [ShowSyllabusController::class, 'show'])->name('YourWorks');
 Route::get('/syllabus/{id}', [ShowSyllabusController::class, 'details'])->name('syllabus.details');
 Route::get('/syllabus/{id}/edit', [ShowSyllabusController::class, 'edit'])->name('syllabus.edit');

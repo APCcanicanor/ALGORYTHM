@@ -31,19 +31,35 @@ class ShowSyllabusController extends Controller
 
     // Update the specified syllabus associated with the authenticated user
     public function update(Request $request, $id)
-    {
-        $request->validate([
-            'courseTitle' => 'required',
-            'instructor' => 'required',
-            'courseDescription' => 'required',
-            'courseOutline' => 'required',
-        ]);
+{
+    $request->validate([
+        'courseTitle' => 'required',
+        'instructor' => 'required',
+        'courseDescription' => 'required',
+        'courseOutline' => 'required',
+    ]);
 
-        $data = Syllabus::findOrFail($id);
+    $data = Syllabus::findOrFail($id);
+
+    if ($request->has('action') && $request->input('action') === 'save_as_new') {
+        // Create a new entry for the new version
+        $newSyllabus = new Syllabus();
+        $newSyllabus->courseTitle = $request->input('courseTitle');
+        $newSyllabus->instructor = $request->input('instructor');
+        $newSyllabus->courseDescription = $request->input('courseDescription');
+        $newSyllabus->courseOutline = $request->input('courseOutline');
+        $newSyllabus->status = 'pending'; // You might want to adjust this as needed
+        $newSyllabus->user_id = auth()->id();
+        $newSyllabus->save();
+    } else {
+        // Update the existing syllabus if the action is 'update'
         $data->update($request->all());
-
-        return redirect()->route('YourWorks')->with('success', 'Syllabus updated successfully!');
     }
+
+    return redirect()->route('YourWorks')->with('success', 'Syllabus updated successfully!');
+}
+
+
 
     // Delete the specified syllabus associated with the authenticated user
     public function destroy($id)

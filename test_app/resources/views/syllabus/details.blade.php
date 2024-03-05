@@ -91,7 +91,9 @@
             <label for="editCourseOutline">Edit Outline:</label>
             <textarea id="editCourseOutline" name="courseOutline" required>{{ $data->courseOutline }}</textarea>
 
-            <button type="submit">Update</button>
+            <button type="submit" name="action" value="update">Update</button>
+            <button type="submit" name="action" value="save_as_new">Save as New Version</button>
+
         </form>
     </div>
 </section>

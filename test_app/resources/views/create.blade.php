@@ -24,6 +24,9 @@
             z-index: 1000;
         }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cutive&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -35,6 +38,15 @@
         </a>
     </div>
 
+    <div class="apc-name">
+    <p> 
+        <a class="yellow-name"> Asia </a>
+        <a class="blue-name"> Pacific </a> 
+        <a class="yellow-name"> College </a> 
+        <a class="blue-name"> Syllabus </a> 
+    </p>
+    </div>
+    
     <ul class="menu">
         <li><a class="active" href="/dashboard">Home</a></li>
         <li><a href="/courses">Courses</a></li>
@@ -64,7 +76,7 @@
 
 <!-- Course Syllabus -->
 <div class="course-syllabus">
-    <h1>Interactive Course Syllabus</h1>
+    <h1 class="course-interactive-title">Interactive Course Syllabus</h1>
     <form id="syllabusForm" action="{{ route('store-syllabus.create') }}" method="POST">
         @csrf
         <label for="courseTitle">Course Title:</label>
@@ -81,9 +93,9 @@
 
         <div class="button-container">
             <!-- Modify the button to trigger the redirect -->
-            <button id="askAIButton" type="button">Ask AI</button>
-            <div id="aiResponse"></div>
-            <button id="saveButton" type="button">Save</button>
+            <button id="ask-AI-button" type="button">Ask AI</button>
+            <div id="ai-response"></div>
+            <button id="save-button" type="button">Save</button>
         </div>
     </form>
 

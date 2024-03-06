@@ -7,6 +7,9 @@
     <title>Course List</title>
     <link rel="stylesheet" href="{{ asset('assets/css/courses.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cutive&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -18,6 +21,15 @@
         </a>
     </div>
 
+    <div class="apc-name">
+    <p> 
+        <a class="yellow-name"> Asia </a>
+        <a class="blue-name"> Pacific </a> 
+        <a class="yellow-name"> College </a> 
+        <a class="blue-name"> Syllabus </a> 
+    </p>
+    </div>
+    
     <ul class="menu">
         <li><a class="active" href="/dashboard">Home</a></li>
         <li><a href="/courses">Courses</a></li>
@@ -48,8 +60,8 @@
 <!-- Introduction -->
 <section class="intro">
     <div class="container">
-        <h1>Welcome to Our Course List</h1>
-        <p>This page provides a list of available courses offered by our institution. Students, as well as school staff, can browse through the available courses to learn more about their content and requirements.</p>
+        <h1 class = "intro-course-list">Welcome to Our Course List</h1>
+        <p class = "course-list-description">This page provides a list of available courses offered by our institution. Students, as well as school staff, can browse through the available courses to learn more about their content and requirements.</p>
     </div>
 </section>
 

@@ -9,13 +9,14 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #dde4ee;
+    overflow: overlay; 
 }
 
 /* Navbar styles */
 
 nav {
-    background-color: #3b5998; /* Dark blue */
+    background: linear-gradient(to right, #35438c, #2d3d8d); /* Dark blue */
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -25,6 +26,27 @@ nav {
     top: 0;
     width: 100%;
     z-index: 1000;
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.1);
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;  
+}
+
+.apc-name {
+    font-family: "Lato", sans-serif;
+    font-weight: 600;
+    font-style: normal;  
+    font-size: 200%;
+}
+.yellow-name {
+    color: #e7af41;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+}
+.blue-name {
+    color:#4a6ea9;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
 }
 
 .logo-container {
@@ -57,7 +79,9 @@ nav {
 }
 
 .menu a:hover {
-    background-color: #4a6ea9; /* Darker blue on hover */
+    color: rgb(8, 75, 221);
+    transition-delay: 0.1s; /* Delay the color change */
+    background-color: #e7af41; /* Background color on hover */
 }
 
 /* Dropdown styles */
@@ -69,6 +93,9 @@ nav {
     border-radius: 5px;
     padding: 10px 0;
     z-index: 1000;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;  
 }
 
 .dropdown-menu li {
@@ -84,7 +111,8 @@ nav {
 }
 
 .dropdown-menu a:hover {
-    background-color: #f0f0f0; /* Light gray on hover */
+    background-color: #c7dcf5; /* Light gray on hover */
+    transform: scale(1.05);
 }
 
 .dropdown:hover .dropdown-menu {
@@ -100,33 +128,70 @@ nav {
     text-align: left;
     color: white;
     margin-top: 60px; /* Adjusted margin-top */
-    margin-bottom: -60px; /* Added negative margin-bottom */
+    margin-bottom: 20px; /* Added negative margin-bottom */
 }
 
 .sec-num1 h1 {
     font-size: 36px;
-    margin-bottom: 20px;
+    margin-bottom: 20px; 
 }
 
-.btn {
+.syllabus-view-section {
+    font-family: "Cutive", serif;
+    font-weight: 100;
+    font-style: normal;
+}
+.rprl-section {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal; 
+    color: #ffffff;
+    text-shadow: 0 0 20px #e7af41;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+}
+
+.btn-see-syllabus {
     display: inline-block;
-    background: #04558b;
+    background: #e7af41;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
     font-size: 18px;
+    transition: color 0.3s ease-in-out;
+    font-family: "Cutive", serif;
+    font-weight: 100;
+    font-size: small;
+    font-style: normal;
 }
 
-.btn:hover {
-    background: #2134a0;
+.btn-see-syllabus:hover {
+    color: #e7af41;
+    background: #35438c;
 }
 
 /* Styles for About Us Section */
+.about-us {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: x-large;
+    font-style: normal;
+    color: #35438c;
+}
+
+.about-us-info {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color:#0d0d0e 
+}
+
 .about-section {
     padding: 50px 0;
     text-align: center;
-    background-color: #f9f9f9;
 }
 
 .about-section h2 {
@@ -136,7 +201,6 @@ nav {
 }
 
 .about-section p {
-    font-size: 1.1rem;
     line-height: 1.6;
     color: #666;
     margin-bottom: 20px;
@@ -151,6 +215,20 @@ nav {
     flex-wrap: wrap;
 }
 
+.student-name {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.student-job {
+    font-family: "Cutive", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: small;
+}
+
 .card {
     width: 300px;
     margin: 20px;
@@ -158,6 +236,11 @@ nav {
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.card:hover {
+    transform: scale(1.1); /* Enlarge the card on hover */
 }
 
 .card img {

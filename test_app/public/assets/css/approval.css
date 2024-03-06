@@ -10,12 +10,13 @@
 /* Body Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Light gray */
+    background-color: #dde4ee;
 }
 
-/* Navbar Styles */
+/* Navbar styles */
+
 nav {
-    background-color: #3b5998; /* Dark blue */
+    background: linear-gradient(to right, #35438c, #2d3d8d); /* Dark blue */
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -25,8 +26,27 @@ nav {
     top: 0;
     width: 100%;
     z-index: 1000;
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.1);
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;  
 }
-
+.apc-name {
+    font-family: "Lato", sans-serif;
+    font-weight: 600;
+    font-style: normal;  
+    font-size: 200%;
+}
+.yellow-name {
+    color: #e7af41;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+}
+.blue-name {
+    color:#4a6ea9;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+}
 .logo-container {
     display: flex;
     align-items: center;
@@ -35,7 +55,6 @@ nav {
 .logo {
     height: 40px;
 }
-
 .menu {
     list-style: none;
     display: flex;
@@ -57,10 +76,13 @@ nav {
 }
 
 .menu a:hover {
-    background-color: #4a6ea9; /* Darker blue on hover */
+    color: rgb(8, 75, 221);
+    transition-delay: 0.1s; /* Delay the color change */
+    background-color: #e7af41; /* Background color on hover */
 }
 
-/* Dropdown Styles */
+
+/* Dropdown styles */
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -84,7 +106,8 @@ nav {
 }
 
 .dropdown-menu a:hover {
-    background-color: #f0f0f0; /* Light gray on hover */
+    background-color: #c7dcf5; /* Light gray on hover */
+    transform: scale(1.1);
 }
 
 .dropdown:hover .dropdown-menu {
@@ -116,10 +139,14 @@ nav {
 /* Content Section Styles */
 .content {
     margin-top: 80px; /* Adjust according to your navbar height */
+    margin-right:15%;
+    margin-left:15%;
     padding: 20px;
     display: flex;
     flex-wrap: wrap; /* Allow content to wrap */
     gap: 20px; /* Add space between cards */
+    background-color: #e7eaf0;
+    justify-content: center;
 }
 
 /* Button Container Styles */
@@ -127,6 +154,32 @@ nav {
     text-align: left;
 }
 
+#historyBtn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: "Courier Prime", monospace;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    color: #fff;
+    background-color: #04558b;
+    border-radius: 5px;
+    border-color: #04558b;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+#historyBtn:hover {
+    color: #04558b;
+    transition-delay: 0.1s; /* Delay the color change */
+    background-color: #e7af41; /* Background color on hover */
+    border-color: #e7af41;
+}
+
+#historyBtn:focus {
+    outline: none;
+  }
 /* Button Styles */
 .create-button {
     background-color: #4CAF50; /* Green */
@@ -142,6 +195,31 @@ nav {
 
 .create-button:hover {
     background-color: #45a049; /* Darker green on hover */
+}
+
+.pending-syllabi {
+    font-family: "Roboto Mono", monospace;
+    font-weight: 600;
+    font-style: normal;
+    padding-top:5px;
+}
+
+.pending {
+    color:#f44336;
+}
+
+.nopend-app {
+    font-family: "Roboto Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
+    padding:10px 20px;
+}
+.history-text {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    text-align: center;
+    padding-bottom: 20px;
 }
 
 /* Saved Content Styles */
@@ -163,16 +241,39 @@ nav {
 /* Card styles for pending syllabi */
 .card.pending {
     background-color: #ffeb3b; /* Yellow background */
+    color:#dde4ee;
 }
 
 /* Card styles for rejected syllabi */
 .card.rejected {
-    background-color: #f44336; /* Red background */
+    background-color: #f17168; /* Red background */
+    font-family: "Roboto Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
 }
 
 /* Card styles for approved syllabi */
 .card.approved {
     background-color: #4caf50; /* Green background */
+    font-family: "Roboto Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
+}
+
+#delete-btn {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 75%;
+    padding: 6px 12px; /* Adjust padding for smaller size */
+    font-size: 14px; /* Adjust font size for smaller text */
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    background-color: #e40c0c;
+    border: 1px solid #e94a22d2; /* Adjust border thickness for smaller button */
+    border-radius: 3px; /* Adjust border radius for smaller corners */
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s; 
 }
 
 /* Responsive Styles */

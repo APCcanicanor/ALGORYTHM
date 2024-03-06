@@ -9,13 +9,14 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    overflow: overlay; 
+    background-color: #dde4ee; /* Set background color */
 }
 
 /* Navbar styles */
 
 nav {
-    background-color: #3b5998; /* Dark blue */
+    background: linear-gradient(to right, #35438c, #2d3d8d); /* Dark blue */
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -25,8 +26,27 @@ nav {
     top: 0;
     width: 100%;
     z-index: 1000;
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.1);
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;  
 }
-
+.apc-name {
+    font-family: "Lato", sans-serif;
+    font-weight: 600;
+    font-style: normal;  
+    font-size: 200%;
+}
+.yellow-name {
+    color: #e7af41;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+}
+.blue-name {
+    color:#4a6ea9;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+}
 .logo-container {
     display: flex;
     align-items: center;
@@ -35,7 +55,6 @@ nav {
 .logo {
     height: 40px;
 }
-
 .menu {
     list-style: none;
     display: flex;
@@ -57,8 +76,11 @@ nav {
 }
 
 .menu a:hover {
-    background-color: #4a6ea9; /* Darker blue on hover */
+    color: rgb(8, 75, 221);
+    transition-delay: 0.1s; /* Delay the color change */
+    background-color: #e7af41; /* Background color on hover */
 }
+
 
 /* Dropdown styles */
 .dropdown-menu {
@@ -84,7 +106,8 @@ nav {
 }
 
 .dropdown-menu a:hover {
-    background-color: #f0f0f0; /* Light gray on hover */
+    background-color: #c7dcf5; /* Light gray on hover */
+    transform: scale(1.1);
 }
 
 .dropdown:hover .dropdown-menu {
@@ -148,12 +171,27 @@ nav {
 }
 
 /* Styles for course cards */
+.intro-course-list {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: x-large;
+    font-style: normal;
+    color: #35438c;
+}
+.course-list-description {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color:#0d0d0e
+}
+
 .course-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px; /* Add padding to space out the cards */
-    margin-top: 100px; /* Add top margin to accommodate the fixed navbar */
+    margin-top: 50px; /* Add top margin to accommodate the fixed navbar */
 }
 
 .course-card {
@@ -169,6 +207,8 @@ nav {
 
 .course-card:hover {
     transform: translateY(-5px); /* Lift the card slightly on hover */
+    transform: scale(1.1); /* Enlarge the card on hover */
+
 }
 
 .course-card img {
@@ -182,11 +222,23 @@ nav {
     font-size: 20px;
     margin-bottom: 10px;
     color: #333; /* Set the heading color */
+    text-align: center;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+     
 }
 
 .course-card p {
-    font-size: 16px;
+    font-size: 14px;
     color: #666;
+    
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color:#0d0d0e 
 }
 
 .course-card a {
@@ -204,7 +256,7 @@ nav {
 
 /* Intro */
 .intro {
-    background-color: #f7f7f7; /* Set background color */
+    background-color: #dde4ee; /* Set background color */
     padding: 50px 0; /* Add padding to top and bottom */
     text-align: center; /* Align text to center */
     margin-top: 80px; /* Add top margin to accommodate the fixed navbar */

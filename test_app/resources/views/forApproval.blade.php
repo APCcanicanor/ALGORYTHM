@@ -6,6 +6,9 @@
     <title>Your Works</title>
     <link rel="stylesheet" href="{{ asset('assets/css/approval.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cutive&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -17,6 +20,15 @@
         </a>
     </div>
 
+    <div class="apc-name">
+    <p> 
+        <a class="yellow-name"> Asia </a>
+        <a class="blue-name"> Pacific </a> 
+        <a class="yellow-name"> College </a> 
+        <a class="blue-name"> Syllabus </a> 
+    </p>
+    </div>
+    
     <ul class="menu">
         <li><a class="active" href="/dashboard">Home</a></li>
         <li><a href="/courses">Courses</a></li>
@@ -46,11 +58,13 @@
 
 <div class="content">
     <!-- History Button -->
-    <button id="historyBtn">See History</button>
+    <div>
+        <button id="historyBtn">VIEW HISTORY</button>
+    </div>
 
     <!-- History Section -->
     <div id="historySection" style="display: none;">
-        <h2>History</h2>
+        <h2 class="history-text">HISTORY</h2>
         @foreach($rejected as $syllabus)
         <div class="card rejected">
             <a href="{{ route('syllabus.sendForApproval', $syllabus->id) }}">
@@ -63,7 +77,7 @@
             <form action="{{ route('delete.syllabus', $syllabus->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit">Delete</button>
+                <button id="delete-btn" type="submit">Delete</button>
             </form>
         </div>
         @endforeach
@@ -80,16 +94,16 @@
             <form action="{{ route('delete.syllabus', $syllabus->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit">Delete</button>
+                <button id="delete-btn" type="submit">Delete</button>
             </form>
         </div>
         @endforeach
     </div>
 
     <!-- Pending Syllabi -->
-    <h2>Pending Syllabi</h2>
+    <h2 class="pending-syllabi"><a class="pending">PENDING</a> Syllabi</h2>
     @if($pending->isEmpty())
-        <p>No pending approvals</p>
+        <p class="nopend-app">No pending approvals</p>
     @else
         @foreach($pending as $syllabus)
             <div class="card pending">
